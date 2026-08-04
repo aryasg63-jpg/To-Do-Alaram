@@ -1,5 +1,6 @@
 package com.todoku.app;
 
+import android.app.AlertDialog;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
@@ -11,8 +12,6 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -190,7 +189,7 @@ public class CalendarActivity extends AppCompatActivity implements TaskAdapter.L
 
     @Override
     public void onDelete(Task t) {
-        new MaterialAlertDialogBuilder(this)
+        new AlertDialog.Builder(this)
                 .setTitle("Hapus kegiatan ini?")
                 .setMessage(t.title)
                 .setPositiveButton("Hapus", (d, w) -> {

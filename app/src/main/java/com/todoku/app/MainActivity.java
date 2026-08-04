@@ -2,6 +2,7 @@ package com.todoku.app;
 
 import android.Manifest;
 import android.app.AlarmManager;
+import android.app.AlertDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -19,14 +20,11 @@ import android.widget.RadioGroup;
 import android.widget.Switch;
 import android.widget.TextView;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -279,7 +277,7 @@ public class MainActivity extends AppCompatActivity implements TaskAdapter.Liste
 
     @Override
     public void onDelete(Task t) {
-        new MaterialAlertDialogBuilder(this)
+        new AlertDialog.Builder(this)
                 .setTitle("Hapus kegiatan ini?")
                 .setMessage(t.title + (t.isRecurring() ? "\n\n(Hanya kejadian hari ini yang dihapus; jadwal berulangnya tetap ada. Untuk menghapus seluruh pengulangan, buka Edit.)" : ""))
                 .setPositiveButton("Hapus", (d, w) -> {
@@ -309,7 +307,7 @@ public class MainActivity extends AppCompatActivity implements TaskAdapter.Liste
         switchDigest.setChecked(PrefsHelper.isDigestEnabled(this));
         updateDigestTimeLabel(btnDigestTime);
 
-        AlertDialog dialog = new MaterialAlertDialogBuilder(this)
+        AlertDialog dialog = new AlertDialog.Builder(this)
                 .setTitle("Pengaturan")
                 .setView(view)
                 .create();
@@ -362,7 +360,7 @@ public class MainActivity extends AppCompatActivity implements TaskAdapter.Liste
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
             AlarmManager am = (AlarmManager) getSystemService(ALARM_SERVICE);
             if (am != null && !am.canScheduleExactAlarms()) {
-                new MaterialAlertDialogBuilder(this)
+                new AlertDialog.Builder(this)
                         .setTitle("Izinkan Alarm Presisi")
                         .setMessage("Agar semua alarm & pengingat bunyi TEPAT waktu, aktifkan izin \"Alarm & pengingat\" untuk aplikasi ini.")
                         .setPositiveButton("Buka Pengaturan", (d, w) -> {
