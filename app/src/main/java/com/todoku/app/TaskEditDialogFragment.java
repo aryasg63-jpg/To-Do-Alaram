@@ -1,6 +1,5 @@
 package com.todoku.app;
 
-import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.TimePickerDialog;
 import android.app.DatePickerDialog;
@@ -26,7 +25,10 @@ import android.widget.Toast;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.DialogFragment;
+
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -258,7 +260,7 @@ public class TaskEditDialogFragment extends DialogFragment {
         // ---------- Pengingat custom ----------
         btnAddReminderRule.setOnClickListener(v -> openAddReminderRuleDialog());
 
-        AlertDialog dialog = new AlertDialog.Builder(requireContext())
+        AlertDialog dialog = new MaterialAlertDialogBuilder(requireContext())
                 .setTitle(dialogTitle)
                 .setView(view)
                 .create();
@@ -266,7 +268,7 @@ public class TaskEditDialogFragment extends DialogFragment {
         btnCancel.setOnClickListener(v -> dismiss());
 
         btnDeleteTask.setOnClickListener(v -> {
-            new AlertDialog.Builder(requireContext())
+            new MaterialAlertDialogBuilder(requireContext())
                     .setTitle(wasRecurringInstance ? "Hapus seluruh pengulangan?" : "Hapus kegiatan?")
                     .setMessage(wasRecurringInstance
                             ? "Semua kejadian mendatang dari kegiatan berulang ini akan dihapus. Riwayat yang sudah lewat tetap tersimpan."
@@ -513,7 +515,7 @@ public class TaskEditDialogFragment extends DialogFragment {
         spIntervalHours.setAdapter(intervalAdapter);
         spIntervalHours.setSelection(intervalValues.indexOf(24));
 
-        AlertDialog sub = new AlertDialog.Builder(requireContext())
+        AlertDialog sub = new MaterialAlertDialogBuilder(requireContext())
                 .setTitle("Pengingat Custom")
                 .setView(v)
                 .create();

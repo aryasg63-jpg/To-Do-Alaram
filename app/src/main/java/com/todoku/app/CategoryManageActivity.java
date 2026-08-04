@@ -1,6 +1,5 @@
 package com.todoku.app;
 
-import android.app.AlertDialog;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
@@ -10,9 +9,12 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 public class CategoryManageActivity extends AppCompatActivity implements CategoryAdapter.Listener {
 
@@ -54,7 +56,7 @@ public class CategoryManageActivity extends AppCompatActivity implements Categor
 
     @Override
     public void onDelete(Category c) {
-        new AlertDialog.Builder(this)
+        new MaterialAlertDialogBuilder(this)
                 .setTitle("Hapus kategori?")
                 .setMessage("\"" + c.label + "\" akan dihapus. Tugas yang sudah pakai kategori ini tidak akan hilang.")
                 .setPositiveButton("Hapus", (d, w) -> {
@@ -79,7 +81,7 @@ public class CategoryManageActivity extends AppCompatActivity implements Categor
             etEmoji.setText(existing.emoji);
         }
 
-        AlertDialog dialog = new AlertDialog.Builder(this)
+        AlertDialog dialog = new MaterialAlertDialogBuilder(this)
                 .setTitle(existing == null ? "Kategori Baru" : "Edit Kategori")
                 .setView(view)
                 .create();

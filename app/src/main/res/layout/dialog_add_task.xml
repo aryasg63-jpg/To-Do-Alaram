@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -76,13 +77,15 @@
         android:layout_marginTop="12dp">
 
         <TextView style="@style/LabelText" android:text="Tanggal" />
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btnPickDate"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="📅 Pilih tanggal"
-            android:layout_marginTop="4dp"
-            style="?android:attr/buttonStyleSmall" />
+            android:textAllCaps="false"
+            app:cornerRadius="12dp"
+            android:layout_marginTop="4dp" />
     </LinearLayout>
 
     <!-- Mode BERULANG: pilih harian/mingguan + hari -->
@@ -119,14 +122,16 @@
     </LinearLayout>
 
     <TextView style="@style/LabelText" android:text="Jam" android:layout_marginTop="14dp" />
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btnPickStartTime"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="🕐 Pilih jam mulai"
+        android:textAllCaps="false"
+        app:cornerRadius="12dp"
         android:layout_marginTop="4dp"
-        android:layout_marginBottom="14dp"
-        style="?android:attr/buttonStyleSmall" />
+        android:layout_marginBottom="14dp" />
 
     <TextView style="@style/LabelText" android:text="Estimasi durasi pengerjaan (menit)" />
     <EditText
@@ -196,25 +201,29 @@
         android:orientation="vertical"
         android:layout_marginTop="8dp" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btnAddReminderRule"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="+ Tambah Pengingat Custom"
+        android:textAllCaps="false"
+        app:cornerRadius="12dp"
         android:layout_marginTop="6dp"
-        android:layout_marginBottom="14dp"
-        style="?android:attr/buttonStyleSmall" />
+        android:layout_marginBottom="14dp" />
 
     <View style="@style/Divider" />
 
     <TextView style="@style/LabelText" android:text="Suara Alarm" android:layout_marginTop="14dp" />
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btnPickSound"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="🎵 Pilih file audio (.mp3 / .opus) dari HP"
-        android:layout_marginTop="4dp"
-        style="?android:attr/buttonStyleSmall" />
+        android:textAllCaps="false"
+        app:cornerRadius="12dp"
+        android:layout_marginTop="4dp" />
 
     <TextView
         android:id="@+id/tvSelectedSound"
@@ -225,14 +234,16 @@
         android:textColor="#8B8B9E"
         android:layout_marginTop="6dp" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btnPreviewSound"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="▶ Coba dengarkan"
+        android:textAllCaps="false"
+        app:cornerRadius="12dp"
         android:layout_marginTop="6dp"
-        android:visibility="gone"
-        style="?android:attr/buttonStyleSmall" />
+        android:visibility="gone" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -240,30 +251,38 @@
         android:orientation="horizontal"
         android:layout_marginTop="24dp">
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btnDeleteTask"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Hapus"
+            android:textAllCaps="false"
+            app:cornerRadius="12dp"
             android:textColor="#FF5252"
             android:visibility="gone"
             android:layout_marginEnd="8dp" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btnCancel"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Batal"
+            android:textAllCaps="false"
+            app:cornerRadius="12dp"
             android:layout_marginEnd="8dp" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btnSave"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Simpan"
-            android:backgroundTint="#6C5CE7"
+            android:textAllCaps="false"
+            app:cornerRadius="12dp"
+            app:backgroundTint="#6C5CE7"
             android:textColor="#FFFFFF" />
     </LinearLayout>
 
